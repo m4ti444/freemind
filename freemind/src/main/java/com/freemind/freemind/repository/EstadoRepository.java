@@ -1,7 +1,6 @@
 package com.freemind.freemind.repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 import com.freemind.freemind.model.Estado;
 import java.util.List;
@@ -11,8 +10,4 @@ import java.util.List;
 public interface EstadoRepository extends JpaRepository<Estado, Long> {
     List<Estado> findByNombre(String nombre);
 
-    @Query(""" 
-        SELECT s, s.configuracion.notificaciones_activadas, s.institucion.nombre FROM Sucursal s
-        """)
-    List<Object[]> findInstitcuionConConfigYInsti();
 }

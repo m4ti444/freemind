@@ -9,41 +9,30 @@ import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
-
+import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Entity
 @Table(name = "actividad")
 @Data
+@NoArgsConstructor
+@AllArgsConstructor
 public class Actividad {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     private String nombre;
-    private String tipo_actividad;
-    private int fecha;
 
     @ManyToOne
     @JoinColumn(name = "usuario_id")
     @com.fasterxml.jackson.annotation.JsonIgnore
-    private Usuario tipoUsuario;
+    private Usuario usuario;
 
     @OneToMany(mappedBy = "actividad", cascade = CascadeType.ALL)
-    @com.fasterxml.jackson.annotation.JsonIgnore
-    private List<TipoActividad> tipoActividad;
+    private List<TipoActividad> tiposActividad;
 
-    public Long getUsuarioId() {
-        return tipoUsuario != null ? tipoUsuario.getId() : null;
-    }
-
-    public void setUsuarioId(Long usuarioId) {
-        if (tipoUsuario == null){
-            tipoUsuario = new Usuario();
-
-        }
-        tipoUsuario.setId(usuarioId);
-    }
 }

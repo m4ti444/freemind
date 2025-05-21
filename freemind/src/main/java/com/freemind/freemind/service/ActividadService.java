@@ -1,31 +1,14 @@
 package com.freemind.freemind.service;
 
-//import com.freemind.freemind.model.Actividad;
-//import com.freemind.freemind.model.Usuario;
-//import com.freemind.freemind.repository.ActividadRepository;
-//import com.freemind.freemind.repository.UsuarioRepository;
-//import com.freemind.freemind.service.ActividadService;
-//import org.springframework.beans.factory.annotation.Autowired;
-//import org.springframework.stereotype.Service;
+import java.util.List;
+import com.freemind.freemind.model.Actividad;
 
-//import java.util.List;
+public interface ActividadService {
+    List<Actividad> findAll();
+    Actividad findById(Integer id);
+    Actividad save(Actividad actividad);
+    void deleteById(Integer id);
+    Actividad updateActividad(Actividad actividad);
+}
 
-//@Service
-//public class ActividadServiceImpl implements ActividadService {
 
-    //@Autowired
-    //private ActividadRepository actividadRepository;
-
-    //@Autowired
-    //private UsuarioRepository usuarioRepository;
-
-    //@Override
-    //public List<Actividad> findAll() {
-        //return actividadRepository.findAll();
-    //}
-
-    //@Override
-    //public Actividad save(Actividad actividad) {
-        //if (actividad.getUsuarioId() != null && (actividad.getInstitucion() == null || actividad.getInstitucion().get))
-    //}
-//}

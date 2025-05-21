@@ -6,8 +6,6 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
-import jakarta.persistence.JoinTable;
-import jakarta.persistence.ManyToMany;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
@@ -28,7 +26,7 @@ import java.util.List;
 public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+    private Integer id;
 
     @Column(unique = true, length= 13, nullable=false)
     private String run;
@@ -47,14 +45,6 @@ public class Usuario {
     
     @Column(length = 9, nullable=false)
     private String telefono;
-
-    @ManyToMany
-    @JoinTable(
-        name = "institucion_usuario",
-        joinColumns = @JoinColumn(name = "usuario_id"),
-        inverseJoinColumns = @JoinColumn(name = "institucion_id")
-    )
-    private Institucion institucion;
 
     @ManyToOne
     @JoinColumn(name = "tipo_usuario", nullable = false)
