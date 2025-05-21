@@ -11,9 +11,13 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+
 import com.freemind.freemind.model.Estado;
 import com.freemind.freemind.service.EstadoService;
 
+@RestController
+@RequestMapping("/api/v1/estados")
 public class EstadoController {
 
     @Autowired
